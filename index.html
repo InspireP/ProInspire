@@ -4,21 +4,28 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ProInspire - Digital Marketing</title>
-  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
   <style>
     body {
       font-family: Arial, sans-serif;
       margin: 0;
       background: #f9f9f9;
       color: #333;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    body.dark {
+      background: #121212;
+      color: #e0e0e0;
     }
 
     header {
       background: #1e1e1e;
       color: white;
-      padding: 40px 20px 20px;
+      padding: 40px 20px;
       text-align: center;
       position: relative;
+    }
+    header.dark {
+      background: #222;
     }
 
     header img.logo {
@@ -26,28 +33,51 @@
       margin-bottom: 10px;
     }
 
-    nav {
-      margin-top: 15px;
-    }
-
     nav a {
       margin: 0 15px;
       color: white;
       text-decoration: none;
+      font-weight: 600;
+    }
+    nav a:hover {
+      text-decoration: underline;
     }
 
-    .cta-button {
+    .contact-button {
       position: absolute;
       top: 20px;
       right: 20px;
-      background: #ff6600;
+      background: #0066cc;
       color: white;
-      padding: 10px 18px;
       border: none;
-      border-radius: 6px;
+      padding: 10px 15px;
+      border-radius: 5px;
       cursor: pointer;
-      font-size: 14px;
-      text-decoration: none;
+      font-weight: 600;
+      transition: background-color 0.3s;
+    }
+    .contact-button:hover {
+      background: #004999;
+    }
+
+    .dark .contact-button {
+      background: #3399ff;
+    }
+    .dark .contact-button:hover {
+      background: #66b2ff;
+    }
+
+    .dark-mode-toggle {
+      position: absolute;
+      top: 20px;
+      right: 120px;
+      cursor: pointer;
+      font-size: 24px;
+      user-select: none;
+      color: white;
+    }
+    .dark .dark-mode-toggle {
+      color: #ffdd57;
     }
 
     .hero {
@@ -61,9 +91,14 @@
       color: white;
       text-shadow: 1px 1px 3px black;
     }
+    .dark .hero {
+      filter: brightness(0.7);
+    }
 
     .hero h2 {
       font-size: 36px;
+      text-align: center;
+      margin: 0 20px;
     }
 
     section {
@@ -72,16 +107,28 @@
       margin: auto;
     }
 
-    .services, .about, .contact, .portfolio, .faq, .testimonials {
+    .services,
+    .about,
+    .contact,
+    .portfolio,
+    .reviews,
+    .qa {
       background: white;
       margin: 20px 0;
       padding: 20px;
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      transition: background-color 0.3s, color 0.3s;
     }
-
-    .services ul {
-      padding-left: 20px;
+    .dark .services,
+    .dark .about,
+    .dark .contact,
+    .dark .portfolio,
+    .dark .reviews,
+    .dark .qa {
+      background: #1e1e1e;
+      color: #ddd;
+      box-shadow: 0 0 10px rgba(255,255,255,0.1);
     }
 
     .portfolio img {
@@ -97,28 +144,64 @@
       justify-content: center;
     }
 
-    .testimonials blockquote {
-      border-left: 4px solid #0066cc;
-      margin: 20px 0;
-      padding-left: 15px;
+    .reviews blockquote {
       font-style: italic;
+      border-left: 4px solid #0066cc;
+      margin: 10px 0;
+      padding-left: 15px;
+      color: #444;
+    }
+    .dark .reviews blockquote {
+      border-left-color: #3399ff;
+      color: #bbb;
     }
 
-    .faq details {
-      margin-bottom: 10px;
+    .qa dl {
+      margin: 0;
+    }
+    .qa dt {
+      font-weight: 700;
+      margin-top: 15px;
       cursor: pointer;
+      position: relative;
+      padding-right: 20px;
     }
-
-    .faq summary {
+    .qa dt::after {
+      content: '+';
+      position: absolute;
+      right: 0;
+      top: 0;
       font-weight: bold;
+      transition: transform 0.3s ease;
+    }
+    .qa dt.active::after {
+      content: '-';
+    }
+    .qa dd {
+      margin-left: 20px;
+      margin-top: 5px;
+      display: none;
+    }
+    .qa dd.active {
+      display: block;
     }
 
-    form input, form textarea {
+    form input,
+    form textarea {
       width: 100%;
       margin-bottom: 15px;
       padding: 10px;
       border-radius: 4px;
       border: 1px solid #ccc;
+      background: white;
+      color: #333;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    .dark form input,
+    .dark form textarea {
+      background: #333;
+      color: #eee;
+      border-color: #555;
     }
 
     form button {
@@ -128,6 +211,17 @@
       border: none;
       border-radius: 4px;
       cursor: pointer;
+      font-weight: 600;
+      transition: background-color 0.3s;
+    }
+    form button:hover {
+      background: #004999;
+    }
+    .dark form button {
+      background: #3399ff;
+    }
+    .dark form button:hover {
+      background: #66b2ff;
     }
 
     footer {
@@ -136,6 +230,9 @@
       text-align: center;
       padding: 20px;
       font-size: 14px;
+    }
+    footer.dark {
+      background: #222;
     }
   </style>
 </head>
@@ -147,12 +244,14 @@
   <p>Έμπνευση & Απόδοση στο Digital Marketing</p>
   <nav>
     <a href="#services">Υπηρεσίες</a>
-    <a href="#portfolio">Έργα</a>
-    <a href="#testimonials">Κριτικές</a>
-    <a href="#faq">FAQ</a>
+    <a href="#portfolio">Έργα μας</a>
+    <a href="#reviews">Κριτικές</a>
+    <a href="#qa">Q&amp;A</a>
+    <a href="#about">Ποιοι Είμαστε</a>
     <a href="#contact">Επικοινωνία</a>
   </nav>
-  <a href="#contact" class="cta-button">Επικοινωνήστε</a>
+  <button class="contact-button" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Επικοινωνία</button>
+  <div class="dark-mode-toggle" id="darkModeToggle" title="Εναλλαγή Dark Mode">🌙</div>
 </header>
 
 <div class="hero">
@@ -163,9 +262,9 @@
   <h2>Οι Υπηρεσίες μας</h2>
   <ul>
     <li>Διαχείριση Social Media</li>
-    <li>SEO & Βελτιστοποίηση Google</li>
+    <li>SEO &amp; Βελτιστοποίηση Google</li>
     <li>Δημιουργία Περιεχομένου</li>
-    <li>Καμπάνιες Google & Meta Ads</li>
+    <li>Καμπάνιες Google &amp; Meta Ads</li>
   </ul>
 </section>
 
@@ -187,65 +286,17 @@
   </div>
 </section>
 
-<section id="testimonials" class="testimonials">
-  <h2>Τι λένε οι πελάτες μας</h2>
-  <blockquote>
-    <p>"Η συνεργασία μας με το ProInspire απογείωσε τα social media μας!"</p>
-    <footer>– Μαρία Κ., Fashion Brand</footer>
-  </blockquote>
-  <blockquote>
-    <p>"Μέσα σε 3 μήνες είχαμε διπλάσιο traffic και πωλήσεις."</p>
-    <footer>– Δημήτρης Τ., Eshop Gadgets</footer>
-  </blockquote>
+<section id="reviews" class="reviews">
+  <h2>Κριτικές Πελατών</h2>
+  <blockquote>"Η συνεργασία με την ProInspire ήταν καταπληκτική! Οι πωλήσεις μας ανέβηκαν σημαντικά."</blockquote>
+  <blockquote>"Επαγγελματική προσέγγιση και άμεση ανταπόκριση σε κάθε μας ανάγκη."</blockquote>
+  <blockquote>"Η καλύτερη ομάδα digital marketing που έχουμε συνεργαστεί!"</blockquote>
 </section>
 
-<section id="faq" class="faq">
-  <h2>Συχνές Ερωτήσεις</h2>
-  <details>
-    <summary>Τι είναι το Digital Marketing;</summary>
-    <p>Είναι η προώθηση προϊόντων και υπηρεσιών μέσω ψηφιακών καναλιών όπως Google, Facebook, Instagram κ.ά.</p>
-  </details>
-  <details>
-    <summary>Γιατί να επιλέξω την ομάδα του ProInspire;</summary>
-    <p>Έχουμε εμπειρία, αποτελεσματικές στρατηγικές και πραγματικά αποτελέσματα σε πελάτες κάθε κλάδου.</p>
-  </details>
-  <details>
-    <summary>Πόσο γρήγορα θα δω αποτελέσματα;</summary>
-    <p>Ανάλογα με την υπηρεσία, οι πρώτες ενδείξεις μπορεί να φανούν μέσα σε 2-4 εβδομάδες.</p>
-  </details>
-</section>
-
-<section id="contact" class="contact">
-  <h2>Επικοινωνήστε μαζί μας</h2>
-  <form id="contact-form">
-    <input type="text" name="name" placeholder="Το όνομά σας" required />
-    <input type="email" name="email" placeholder="Το email σας" required />
-    <textarea name="message" rows="5" placeholder="Το μήνυμά σας" required></textarea>
-    <button type="submit">Αποστολή</button>
-  </form>
-  <p id="form-status"></p>
-</section>
-
-<footer>
-  <p>&copy; 2025 ProInspire | Powered by GitHub Pages</p>
-</footer>
-
-<script>
-  emailjs.init("qaqFmtt4IhWMdXVVZ");
-
-  document.getElementById("contact-form").addEventListener("submit", function (e) {
-    e.preventDefault();
-
-    emailjs.sendForm("paokfans1926", "template_b1wbj88", this)
-      .then(function () {
-        document.getElementById("form-status").innerText = "✅ Το μήνυμά σας στάλθηκε!";
-        document.getElementById("contact-form").reset();
-      }, function (error) {
-        document.getElementById("form-status").innerText = "❌ Σφάλμα κατά την αποστολή. Δοκιμάστε ξανά.";
-        console.error("EmailJS Error:", error);
-      });
-  });
-</script>
-
-</body>
-</html>
+<section id="qa" class="qa">
+  <h2>Συχνές Ερωτήσεις (Q&amp;A)</h2>
+  <dl>
+    <dt>Τι είναι το digital marketing;</dt>
+    <dd>Είναι η προώθηση προϊόντων και υπηρεσιών μέσω ψηφιακών μέσων, όπως το διαδίκτυο και τα social media.</dd>
+    <dt>Πόσο κοστίζει μια καμπάνια;</dt>
+    <dd
