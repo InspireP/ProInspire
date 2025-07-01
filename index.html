@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="el">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ProInspire - Digital Marketing</title>
   <style>
     body {
@@ -52,7 +52,7 @@
       margin: auto;
     }
 
-    .services, .about, .contact, .portfolio {
+    .services, .about, .contact, .portfolio, .faq {
       background: white;
       margin: 20px 0;
       padding: 20px;
@@ -97,18 +97,40 @@
       padding: 20px;
       font-size: 14px;
     }
+
+    /* Q&A specific styles */
+    .faq h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 28px;
+    }
+
+    .faq-item {
+      margin-bottom: 25px;
+    }
+
+    .faq-item h3 {
+      margin-bottom: 8px;
+      color: #0066cc;
+    }
+
+    .faq-item p {
+      color: #444;
+      line-height: 1.5;
+    }
   </style>
 </head>
 <body>
 
 <header>
-  <img src="https://via.placeholder.com/120x60.png?text=ProInspire" alt="Logo" class="logo">
+  <img src="https://via.placeholder.com/120x60.png?text=ProInspire" alt="Logo" class="logo" />
   <h1>ProInspire</h1>
   <p>Έμπνευση & Απόδοση στο Digital Marketing</p>
   <nav>
     <a href="#services">Υπηρεσίες</a>
     <a href="#portfolio">Έργα μας</a>
     <a href="#about">Ποιοι Είμαστε</a>
+    <a href="#faq">Q&A</a>
     <a href="#contact">Επικοινωνία</a>
   </nav>
 </header>
@@ -131,15 +153,15 @@
   <h2>Τα Έργα μας</h2>
   <div class="portfolio-items">
     <div>
-      <img src="https://via.placeholder.com/300x200?text=Social+Media+Campaign" alt="Social Media">
+      <img src="https://via.placeholder.com/300x200?text=Social+Media+Campaign" alt="Social Media" />
       <p style="text-align:center;">Καμπάνια Instagram</p>
     </div>
     <div>
-      <img src="https://via.placeholder.com/300x200?text=SEO+Results" alt="SEO">
+      <img src="https://via.placeholder.com/300x200?text=SEO+Results" alt="SEO" />
       <p style="text-align:center;">Αποτελέσματα SEO</p>
     </div>
     <div>
-      <img src="https://via.placeholder.com/300x200?text=Google+Ads" alt="Ads">
+      <img src="https://via.placeholder.com/300x200?text=Google+Ads" alt="Ads" />
       <p style="text-align:center;">Google Ads Καμπάνια</p>
     </div>
   </div>
@@ -150,11 +172,27 @@
   <p>Η ομάδα του ProInspire αποτελείται από επαγγελματίες του digital marketing με στόχο να βοηθήσουμε τις επιχειρήσεις να ξεχωρίσουν στον ψηφιακό κόσμο.</p>
 </section>
 
+<section id="faq" class="faq">
+  <h2>Συχνές Ερωτήσεις (Q&A)</h2>
+  <div class="faq-item">
+    <h3>Τι υπηρεσίες προσφέρετε στο digital marketing;</h3>
+    <p>Προσφέρουμε διαχείριση social media, SEO, δημιουργία περιεχομένου, και καμπάνιες Google & Meta Ads.</p>
+  </div>
+  <div class="faq-item">
+    <h3>Πόσο χρόνο χρειάζεται για να δώσουν αποτελέσματα οι καμπάνιες;</h3>
+    <p>Συνήθως τα πρώτα αποτελέσματα είναι ορατά εντός 4-6 εβδομάδων, ανάλογα με το είδος της καμπάνιας.</p>
+  </div>
+  <div class="faq-item">
+    <h3>Πώς μπορώ να επικοινωνήσω μαζί σας για να ξεκινήσουμε;</h3>
+    <p>Μπορείτε να χρησιμοποιήσετε τη φόρμα επικοινωνίας στην ενότητα «Επικοινωνία» ή να μας καλέσετε στο τηλέφωνο που θα βρείτε στο κάτω μέρος της σελίδας.</p>
+  </div>
+</section>
+
 <section id="contact" class="contact">
   <h2>Επικοινωνήστε μαζί μας</h2>
   <form>
-    <input type="text" name="name" placeholder="Το όνομά σας" required>
-    <input type="email" name="email" placeholder="Το email σας" required>
+    <input type="text" name="name" placeholder="Το όνομά σας" required />
+    <input type="email" name="email" placeholder="Το email σας" required />
     <textarea name="message" rows="5" placeholder="Το μήνυμά σας" required></textarea>
     <button type="submit">Αποστολή</button>
   </form>
