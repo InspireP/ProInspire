@@ -3,300 +3,276 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ProInspire - Digital Marketing</title>
+  <title>ProInspire - Digital Growth Agency</title>
   <style>
+    /* --- Βασικά Styles --- /
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
-      background: #f9f9f9;
-      color: #333;
+      background-color: #fff;
+      color: #222;
       transition: background-color 0.3s, color 0.3s;
     }
-    body.dark {
-      background: #121212;
-      color: #e0e0e0;
-    }
-
     header {
-      background: #1e1e1e;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      background-color: #0066cc;
       color: white;
-      padding: 40px 20px;
-      text-align: center;
-      position: relative;
+      position: sticky;
+      top: 0;
+      z-index: 999;
     }
-    header.dark {
-      background: #222;
+    .logo {
+      font-weight: 700;
+      font-size: 1.5em;
+      cursor: pointer;
     }
-
-    header img.logo {
-      width: 120px;
-      margin-bottom: 10px;
-    }
-
-    nav a {
-      margin: 0 15px;
-      color: white;
-      text-decoration: none;
+    .contact-btn {
+      background: white;
+      color: #0066cc;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 4px;
+      cursor: pointer;
       font-weight: 600;
+      transition: background-color 0.3s;
     }
-    nav a:hover {
-      text-decoration: underline;
+    .contact-btn:hover {
+      background-color: #e0e0e0;
+    }
+    / Dark mode toggle /
+    #dark-toggle {
+      cursor: pointer;
+      font-size: 20px;
+      margin-left: 20px;
+      user-select: none;
+    }
+    / Dark mode styles */
+    body.dark {
+      background-color: #121212;
+      color: #eee;
+    }
+    body.dark header {
+      background-color: #1a1a1a;
+      color: #eee;
+    }
+    body.dark .contact-btn {
+      background: #333;
+      color: #ddd;
+    }
+    body.dark .contact-btn:hover {
+      background-color: #555;
     }
 
-    .contact-button {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      background: #0066cc;
+    /* --- Q&A Styles --- */
+    section.faq {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px 40px 20px;
+    }
+    section.faq h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      font-size: 2em;
+    }
+    .faq-item {
+      border-bottom: 1px solid #ccc;
+      padding: 12px 0;
+      cursor: pointer;
+    }
+    .faq-question {
+      font-weight: bold;
+      margin: 0;
+      user-select: none;
+    }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      margin: 6px 0 0 0;
+      line-height: 1.4em;
+    }
+    .faq-item.active .faq-answer {
+      max-height: 400px;
+    }
+
+    /* --- Φόρμα Επικοινωνίας --- */
+    section.contact {
+      max-width: 700px;
+      margin: 40px auto 60px auto;
+      padding: 0 20px;
+    }
+    section.contact h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      font-size: 2em;
+    }
+    form#contact-form {
+      display: flex;
+      flex-direction: column;
+    }
+    form#contact-form input,
+    form#contact-form textarea {
+      margin-bottom: 15px;
+      padding: 12px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      resize: vertical;
+    }
+    form#contact-form button {
+      padding: 12px;
+      font-size: 18px;
+      background-color: #0066cc;
       color: white;
       border: none;
-      padding: 10px 15px;
       border-radius: 5px;
       cursor: pointer;
       font-weight: 600;
       transition: background-color 0.3s;
     }
-    .contact-button:hover {
-      background: #004999;
+    form#contact-form button:hover {
+      background-color: #004999;
     }
-
-    .dark .contact-button {
-      background: #3399ff;
-    }
-    .dark .contact-button:hover {
-      background: #66b2ff;
-    }
-
-    .dark-mode-toggle {
-      position: absolute;
-      top: 20px;
-      right: 120px;
-      cursor: pointer;
-      font-size: 24px;
-      user-select: none;
-      color: white;
-    }
-    .dark .dark-mode-toggle {
-      color: #ffdd57;
-    }
-
-    .hero {
-      background-image: url('https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=1500&q=80');
-      background-size: cover;
-      background-position: center;
-      height: 300px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      text-shadow: 1px 1px 3px black;
-    }
-    .dark .hero {
-      filter: brightness(0.7);
-    }
-
-    .hero h2 {
-      font-size: 36px;
-      text-align: center;
-      margin: 0 20px;
-    }
-
-    section {
-      padding: 40px 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
-
-    .services,
-    .about,
-    .contact,
-    .portfolio,
-    .reviews,
-    .qa {
-      background: white;
-      margin: 20px 0;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
-      transition: background-color 0.3s, color 0.3s;
-    }
-    .dark .services,
-    .dark .about,
-    .dark .contact,
-    .dark .portfolio,
-    .dark .reviews,
-    .dark .qa {
-      background: #1e1e1e;
-      color: #ddd;
-      box-shadow: 0 0 10px rgba(255,255,255,0.1);
-    }
-
-    .portfolio img {
-      width: 100%;
-      max-width: 300px;
-      border-radius: 8px;
-      margin: 10px;
-    }
-
-    .portfolio-items {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .reviews blockquote {
-      font-style: italic;
-      border-left: 4px solid #0066cc;
-      margin: 10px 0;
-      padding-left: 15px;
-      color: #444;
-    }
-    .dark .reviews blockquote {
-      border-left-color: #3399ff;
-      color: #bbb;
-    }
-
-    .qa dl {
-      margin: 0;
-    }
-    .qa dt {
-      font-weight: 700;
+    #contact-success {
       margin-top: 15px;
-      cursor: pointer;
-      position: relative;
-      padding-right: 20px;
-    }
-    .qa dt::after {
-      content: '+';
-      position: absolute;
-      right: 0;
-      top: 0;
-      font-weight: bold;
-      transition: transform 0.3s ease;
-    }
-    .qa dt.active::after {
-      content: '-';
-    }
-    .qa dd {
-      margin-left: 20px;
-      margin-top: 5px;
+      color: green;
+      font-weight: 600;
       display: none;
     }
-    .qa dd.active {
-      display: block;
-    }
-
-    form input,
-    form textarea {
-      width: 100%;
-      margin-bottom: 15px;
-      padding: 10px;
-      border-radius: 4px;
-      border: 1px solid #ccc;
-      background: white;
-      color: #333;
-      transition: background-color 0.3s, color 0.3s;
-    }
-    .dark form input,
-    .dark form textarea {
-      background: #333;
-      color: #eee;
-      border-color: #555;
-    }
-
-    form button {
-      padding: 10px 20px;
-      background: #0066cc;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
+    #contact-error {
+      margin-top: 15px;
+      color: red;
       font-weight: 600;
-      transition: background-color 0.3s;
-    }
-    form button:hover {
-      background: #004999;
-    }
-    .dark form button {
-      background: #3399ff;
-    }
-    .dark form button:hover {
-      background: #66b2ff;
-    }
-
-    footer {
-      background: #1e1e1e;
-      color: white;
-      text-align: center;
-      padding: 20px;
-      font-size: 14px;
-    }
-    footer.dark {
-      background: #222;
+      display: none;
     }
   </style>
 </head>
 <body>
 
 <header>
-  <img src="https://via.placeholder.com/120x60.png?text=ProInspire" alt="Logo" class="logo" />
-  <h1>ProInspire</h1>
-  <p>Έμπνευση & Απόδοση στο Digital Marketing</p>
-  <nav>
-    <a href="#services">Υπηρεσίες</a>
-    <a href="#portfolio">Έργα μας</a>
-    <a href="#reviews">Κριτικές</a>
-    <a href="#qa">Q&amp;A</a>
-    <a href="#about">Ποιοι Είμαστε</a>
-    <a href="#contact">Επικοινωνία</a>
-  </nav>
-  <button class="contact-button" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Επικοινωνία</button>
-  <div class="dark-mode-toggle" id="darkModeToggle" title="Εναλλαγή Dark Mode">🌙</div>
+  <div class="logo" onclick="window.scrollTo({top:0,behavior:'smooth'})">ProInspire</div>
+  <div>
+    <button class="contact-btn" onclick="document.getElementById('contact-form').scrollIntoView({behavior:'smooth'})">Επικοινωνία</button>
+    <span id="dark-toggle" title="Εναλλαγή Σκοτεινής Λειτουργίας">🌙</span>
+  </div>
 </header>
 
-<div class="hero">
-  <h2>Αναπτύξτε την επιχείρησή σας ψηφιακά</h2>
-</div>
+<!-- Q&A Section -->
+<section id="faq" class="faq">
+  <h2>Συχνές Ερωτήσεις (Q&A)</h2>
+  <div id="faq-container"></div>
 
-<section id="services" class="services">
-  <h2>Οι Υπηρεσίες μας</h2>
-  <ul>
-    <li>Διαχείριση Social Media</li>
-    <li>SEO &amp; Βελτιστοποίηση Google</li>
-    <li>Δημιουργία Περιεχομένου</li>
-    <li>Καμπάνιες Google &amp; Meta Ads</li>
-  </ul>
+  <form id="faq-form" style="max-width: 500px; margin: 30px auto 0;">
+    <h3>Πρότεινε νέα ερώτηση</h3>
+    <input type="text" id="new-question" placeholder="Η ερώτησή σου" required>
+    <textarea id="new-answer" placeholder="Η απάντηση (προαιρετικά)" rows="3"></textarea>
+    <button type="submit">Πρόσθεσε Ερώτηση</button>
+  </form>
 </section>
 
-<section id="portfolio" class="portfolio">
-  <h2>Τα Έργα μας</h2>
-  <div class="portfolio-items">
-    <div>
-      <img src="https://via.placeholder.com/300x200?text=Social+Media+Campaign" alt="Social Media" />
-      <p style="text-align:center;">Καμπάνια Instagram</p>
-    </div>
-    <div>
-      <img src="https://via.placeholder.com/300x200?text=SEO+Results" alt="SEO" />
-      <p style="text-align:center;">Αποτελέσματα SEO</p>
-    </div>
-    <div>
-      <img src="https://via.placeholder.com/300x200?text=Google+Ads" alt="Ads" />
-      <p style="text-align:center;">Google Ads Καμπάνια</p>
-    </div>
-  </div>
+<!-- Contact Form Section -->
+<section class="contact">
+  <h2>Επικοινωνήστε μαζί μας</h2>
+  <form id="contact-form">
+    <input type="text" id="name" placeholder="Το Όνομά σας" required />
+    <input type="email" id="email" placeholder="Το Email σας" required />
+    <textarea id="message" rows="6" placeholder="Το Μήνυμά σας" required></textarea>
+    <button type="submit">Αποστολή Μηνύματος</button>
+    <div id="contact-success">Το μήνυμά σας στάλθηκε επιτυχώς!</div>
+    <div id="contact-error">Υπήρξε πρόβλημα στην αποστολή, δοκιμάστε ξανά.</div>
+  </form>
 </section>
 
-<section id="reviews" class="reviews">
-  <h2>Κριτικές Πελατών</h2>
-  <blockquote>"Η συνεργασία με την ProInspire ήταν καταπληκτική! Οι πωλήσεις μας ανέβηκαν σημαντικά."</blockquote>
-  <blockquote>"Επαγγελματική προσέγγιση και άμεση ανταπόκριση σε κάθε μας ανάγκη."</blockquote>
-  <blockquote>"Η καλύτερη ομάδα digital marketing που έχουμε συνεργαστεί!"</blockquote>
-</section>
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+  // --- Dark Mode Toggle ---
+  const darkToggle = document.getElementById('dark-toggle');
+  darkToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+    darkToggle.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
+  });
 
-<section id="qa" class="qa">
-  <h2>Συχνές Ερωτήσεις (Q&amp;A)</h2>
-  <dl>
-    <dt>Τι είναι το digital marketing;</dt>
-    <dd>Είναι η προώθηση προϊόντων και υπηρεσιών μέσω ψηφιακών μέσων, όπως το διαδίκτυο και τα social media.</dd>
-    <dt>Πόσο κοστίζει μια καμπάνια;</dt>
-    <dd
+  // --- FAQ Data & Render ---
+  const faqData = [
+    {
+      question: "Πώς μπορώ να ξεκινήσω μια καμπάνια στο ProInspire;",
+      answer: "Απλά επικοινωνήστε μαζί μας μέσω της φόρμας και θα σας καθοδηγήσουμε βήμα-βήμα."
+    },
+    {
+      question: "Ποιο είναι το κόστος των υπηρεσιών σας;",
+      answer: "Το κόστος διαφέρει ανάλογα με τις ανάγκες της επιχείρησής σας. Κάντε μας μια ερώτηση για να λάβετε προσφορά."
+    },
+    {
+      question: "Πόσο γρήγορα βλέπω αποτελέσματα από το SEO;",
+      answer: "Τα πρώτα αποτελέσματα συνήθως εμφανίζονται μέσα σε 2-3 μήνες, ανάλογα με τον ανταγωνισμό και την αγορά."
+    }
+  ];
+
+  const faqContainer = document.getElementById('faq-container');
+
+  function renderFaq() {
+    faqContainer.innerHTML = '';
+    faqData.forEach((item, index) => {
+      const faqItem = document.createElement('div');
+      faqItem.className = 'faq-item';
+      faqItem.innerHTML = `
+        <p class="faq-question">${item.question}</p>
+        <div class="faq-answer">${item.answer || ''}</div>
+      `;
+      faqItem.querySelector('.faq-question').addEventListener('click', () => {
+        faqItem.classList.toggle('active');
+      });
+      faqContainer.appendChild(faqItem);
+    });
+  }
+  renderFaq();
+
+  // Προσθήκη νέας ερώτησης από φόρμα
+  document.getElementById('faq-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const newQ = document.getElementById('new-question').value.trim();
+    const newA = document.getElementById('new-answer').value.trim();
+    if(newQ) {
+      faqData.push({question: newQ, answer: newA});
+      renderFaq();
+      this.reset();
+    }
+  });
+
+  // --- EmailJS Setup ---
+  (function(){
+    emailjs.init('qaqFmtt4IhWMdXVVZ'); // το public key σου
+  })();
+
+  // --- Contact Form Submit ---
+  const contactForm = document.getElementById('contact-form');
+  const successMsg = document.getElementById('contact-success');
+  const errorMsg = document.getElementById('contact-error');
+
+  contactForm.addEventListener('submit', function(e){
+    e.preventDefault();
+
+    const templateParams = {
+      from_name: document.getElementById('name').value,
+      from_email: document.getElementById('email').value,
+      message: document.getElementById('message').value
+    };
+
+    emailjs.send('paokfans1926', 'template_b1wbj88', templateParams)
+      .then(() => {
+        successMsg.style.display = 'block';
+        errorMsg.style.display = 'none';
+        contactForm.reset();
+      }, (error) => {
+        successMsg.style.display = 'none';
+        errorMsg.style.display = 'block';
+        console.error('EmailJS error:', error);
+      });
+  });
+</script>
+
+</body>
+</html>
