@@ -174,7 +174,7 @@
 
 <script>
   (function(){
-    emailjs.init("YOUR_PUBLIC_KEY_HERE");  // Βάλε εδώ το δικό σου Public Key από emailjs
+    emailjs.init("qaqFmtt4IhWMdXVVZ");  // Βάλε εδώ το δικό σου Public Key από emailjs
   })();
 
   const form = document.getElementById('contact-form');
@@ -198,7 +198,7 @@
     event.preventDefault();
     submitBtn.disabled = true;
 
-    emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
+    emailjs.sendForm('paokfans1926', 'template_b1wbj88', this)
       .then(() => {
         form.style.display = 'none';
         thankYouMsg.style.display = 'block';
