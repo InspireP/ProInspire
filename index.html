@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="el">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ProInspire - Digital Marketing</title>
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -15,8 +16,9 @@
     header {
       background: #1e1e1e;
       color: white;
-      padding: 40px 20px;
+      padding: 40px 20px 20px;
       text-align: center;
+      position: relative;
     }
 
     header img.logo {
@@ -24,9 +26,27 @@
       margin-bottom: 10px;
     }
 
+    nav {
+      margin-top: 15px;
+    }
+
     nav a {
       margin: 0 15px;
       color: white;
+      text-decoration: none;
+    }
+
+    .cta-button {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: #ff6600;
+      color: white;
+      padding: 10px 18px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
       text-decoration: none;
     }
 
@@ -52,12 +72,16 @@
       margin: auto;
     }
 
-    .services, .about, .contact, .portfolio {
+    .services, .about, .contact, .portfolio, .faq, .testimonials {
       background: white;
       margin: 20px 0;
       padding: 20px;
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+
+    .services ul {
+      padding-left: 20px;
     }
 
     .portfolio img {
@@ -71,6 +95,22 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
+    }
+
+    .testimonials blockquote {
+      border-left: 4px solid #0066cc;
+      margin: 20px 0;
+      padding-left: 15px;
+      font-style: italic;
+    }
+
+    .faq details {
+      margin-bottom: 10px;
+      cursor: pointer;
+    }
+
+    .faq summary {
+      font-weight: bold;
     }
 
     form input, form textarea {
@@ -102,15 +142,17 @@
 <body>
 
 <header>
-  <img src="https://via.placeholder.com/120x60.png?text=ProInspire" alt="Logo" class="logo">
+  <img src="https://via.placeholder.com/120x60.png?text=ProInspire" alt="Logo" class="logo" />
   <h1>ProInspire</h1>
   <p>Έμπνευση & Απόδοση στο Digital Marketing</p>
   <nav>
     <a href="#services">Υπηρεσίες</a>
-    <a href="#portfolio">Έργα μας</a>
-    <a href="#about">Ποιοι Είμαστε</a>
+    <a href="#portfolio">Έργα</a>
+    <a href="#testimonials">Κριτικές</a>
+    <a href="#faq">FAQ</a>
     <a href="#contact">Επικοινωνία</a>
   </nav>
+  <a href="#contact" class="cta-button">Επικοινωνήστε</a>
 </header>
 
 <div class="hero">
@@ -131,55 +173,76 @@
   <h2>Τα Έργα μας</h2>
   <div class="portfolio-items">
     <div>
-      <img src="https://via.placeholder.com/300x200?text=Social+Media+Campaign" alt="Social Media">
+      <img src="https://via.placeholder.com/300x200?text=Social+Media+Campaign" alt="Social Media" />
       <p style="text-align:center;">Καμπάνια Instagram</p>
     </div>
     <div>
-      <img src="https://via.placeholder.com/300x200?text=SEO+Results" alt="SEO">
+      <img src="https://via.placeholder.com/300x200?text=SEO+Results" alt="SEO" />
       <p style="text-align:center;">Αποτελέσματα SEO</p>
     </div>
     <div>
-      <img src="https://via.placeholder.com/300x200?text=Google+Ads" alt="Ads">
+      <img src="https://via.placeholder.com/300x200?text=Google+Ads" alt="Ads" />
       <p style="text-align:center;">Google Ads Καμπάνια</p>
     </div>
   </div>
 </section>
 
-<section id="about" class="about">
-  <h2>Ποιοι Είμαστε</h2>
-  <p>Η ομάδα του ProInspire αποτελείται από επαγγελματίες του digital marketing με στόχο να βοηθήσουμε τις επιχειρήσεις να ξεχωρίσουν στον ψηφιακό κόσμο.</p>
+<section id="testimonials" class="testimonials">
+  <h2>Τι λένε οι πελάτες μας</h2>
+  <blockquote>
+    <p>"Η συνεργασία μας με το ProInspire απογείωσε τα social media μας!"</p>
+    <footer>– Μαρία Κ., Fashion Brand</footer>
+  </blockquote>
+  <blockquote>
+    <p>"Μέσα σε 3 μήνες είχαμε διπλάσιο traffic και πωλήσεις."</p>
+    <footer>– Δημήτρης Τ., Eshop Gadgets</footer>
+  </blockquote>
+</section>
+
+<section id="faq" class="faq">
+  <h2>Συχνές Ερωτήσεις</h2>
+  <details>
+    <summary>Τι είναι το Digital Marketing;</summary>
+    <p>Είναι η προώθηση προϊόντων και υπηρεσιών μέσω ψηφιακών καναλιών όπως Google, Facebook, Instagram κ.ά.</p>
+  </details>
+  <details>
+    <summary>Γιατί να επιλέξω την ομάδα του ProInspire;</summary>
+    <p>Έχουμε εμπειρία, αποτελεσματικές στρατηγικές και πραγματικά αποτελέσματα σε πελάτες κάθε κλάδου.</p>
+  </details>
+  <details>
+    <summary>Πόσο γρήγορα θα δω αποτελέσματα;</summary>
+    <p>Ανάλογα με την υπηρεσία, οι πρώτες ενδείξεις μπορεί να φανούν μέσα σε 2-4 εβδομάδες.</p>
+  </details>
 </section>
 
 <section id="contact" class="contact">
   <h2>Επικοινωνήστε μαζί μας</h2>
   <form id="contact-form">
-    <input type="text" name="name" placeholder="Το όνομά σας" required>
-    <input type="email" name="email" placeholder="Το email σας" required>
+    <input type="text" name="name" placeholder="Το όνομά σας" required />
+    <input type="email" name="email" placeholder="Το email σας" required />
     <textarea name="message" rows="5" placeholder="Το μήνυμά σας" required></textarea>
     <button type="submit">Αποστολή</button>
   </form>
+  <p id="form-status"></p>
 </section>
 
 <footer>
   <p>&copy; 2025 ProInspire | Powered by GitHub Pages</p>
 </footer>
 
-<!-- Ενσωμάτωση EmailJS -->
-<script src="https://cdn.emailjs.com/sdk/3.2/email.min.js"></script>
 <script>
-  emailjs.init("qaqFmtt4IhWMdXVVZ"); // Το Public Key σου
+  emailjs.init("qaqFmtt4IhWMdXVVZ");
 
-  const form = document.getElementById("contact-form");
-
-  form.addEventListener("submit", function(event) {
-    event.preventDefault();
+  document.getElementById("contact-form").addEventListener("submit", function (e) {
+    e.preventDefault();
 
     emailjs.sendForm("paokfans1926", "template_b1wbj88", this)
-      .then(() => {
-        alert("Το μήνυμά σας στάλθηκε με επιτυχία!");
-        form.reset();
-      }, (error) => {
-        alert("Υπήρξε σφάλμα: " + error.text);
+      .then(function () {
+        document.getElementById("form-status").innerText = "✅ Το μήνυμά σας στάλθηκε!";
+        document.getElementById("contact-form").reset();
+      }, function (error) {
+        document.getElementById("form-status").innerText = "❌ Σφάλμα κατά την αποστολή. Δοκιμάστε ξανά.";
+        console.error("EmailJS Error:", error);
       });
   });
 </script>
