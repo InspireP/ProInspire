@@ -52,12 +52,17 @@
       margin: auto;
     }
 
-    .services, .about, .contact, .portfolio, .faq {
+    .services,
+    .about,
+    .contact,
+    .portfolio,
+    .testimonials,
+    .qa-section {
       background: white;
       margin: 20px 0;
       padding: 20px;
       border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
     }
 
     .portfolio img {
@@ -73,7 +78,8 @@
       justify-content: center;
     }
 
-    form input, form textarea {
+    form input,
+    form textarea {
       width: 100%;
       margin-bottom: 15px;
       padding: 10px;
@@ -98,109 +104,155 @@
       font-size: 14px;
     }
 
-    /* Q&A specific styles */
-    .faq h2 {
+    /* Testimonials CSS */
+    .testimonials {
+      background: #fff;
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: 40px auto;
+      border-radius: 8px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
       text-align: center;
+    }
+
+    .testimonials h2 {
       margin-bottom: 30px;
       font-size: 28px;
-    }
-
-    .faq-item {
-      margin-bottom: 25px;
-    }
-
-    .faq-item h3 {
-      margin-bottom: 8px;
       color: #0066cc;
     }
 
-    .faq-item p {
+    .testimonial-item {
+      margin-bottom: 25px;
+      font-style: italic;
       color: #444;
-      line-height: 1.5;
+    }
+
+    .testimonial-item h4 {
+      margin-top: 10px;
+      font-weight: bold;
+      color: #222;
+    }
+
+    /* Q&A section style (προσαρμογή αν θες) */
+    .qa-section h2 {
+      color: #0066cc;
+      margin-bottom: 20px;
+    }
+
+    .qa-section details {
+      margin-bottom: 10px;
+      border-radius: 4px;
+      padding: 10px;
+      background: #f0f0f0;
+      cursor: pointer;
+    }
+
+    .qa-section summary {
+      font-weight: bold;
+      font-size: 16px;
+      outline: none;
     }
   </style>
 </head>
 <body>
+  <header>
+    <img src="https://via.placeholder.com/120x60.png?text=ProInspire" alt="Logo" class="logo" />
+    <h1>ProInspire</h1>
+    <p>Έμπνευση & Απόδοση στο Digital Marketing</p>
+    <nav>
+      <a href="#services">Υπηρεσίες</a>
+      <a href="#portfolio">Έργα μας</a>
+      <a href="#about">Ποιοι Είμαστε</a>
+      <a href="#contact">Επικοινωνία</a>
+      <a href="#qa">Q&amp;A</a>
+      <a href="#testimonials">Μαρτυρίες</a>
+    </nav>
+  </header>
 
-<header>
-  <img src="https://via.placeholder.com/120x60.png?text=ProInspire" alt="Logo" class="logo" />
-  <h1>ProInspire</h1>
-  <p>Έμπνευση & Απόδοση στο Digital Marketing</p>
-  <nav>
-    <a href="#services">Υπηρεσίες</a>
-    <a href="#portfolio">Έργα μας</a>
-    <a href="#about">Ποιοι Είμαστε</a>
-    <a href="#faq">Q&A</a>
-    <a href="#contact">Επικοινωνία</a>
-  </nav>
-</header>
+  <div class="hero">
+    <h2>Αναπτύξτε την επιχείρησή σας ψηφιακά</h2>
+  </div>
 
-<div class="hero">
-  <h2>Αναπτύξτε την επιχείρησή σας ψηφιακά</h2>
-</div>
+  <section id="services" class="services">
+    <h2>Οι Υπηρεσίες μας</h2>
+    <ul>
+      <li>Διαχείριση Social Media</li>
+      <li>SEO & Βελτιστοποίηση Google</li>
+      <li>Δημιουργία Περιεχομένου</li>
+      <li>Καμπάνιες Google & Meta Ads</li>
+    </ul>
+  </section>
 
-<section id="services" class="services">
-  <h2>Οι Υπηρεσίες μας</h2>
-  <ul>
-    <li>Διαχείριση Social Media</li>
-    <li>SEO & Βελτιστοποίηση Google</li>
-    <li>Δημιουργία Περιεχομένου</li>
-    <li>Καμπάνιες Google & Meta Ads</li>
-  </ul>
-</section>
-
-<section id="portfolio" class="portfolio">
-  <h2>Τα Έργα μας</h2>
-  <div class="portfolio-items">
-    <div>
-      <img src="https://via.placeholder.com/300x200?text=Social+Media+Campaign" alt="Social Media" />
-      <p style="text-align:center;">Καμπάνια Instagram</p>
+  <section id="portfolio" class="portfolio">
+    <h2>Τα Έργα μας</h2>
+    <div class="portfolio-items">
+      <div>
+        <img src="https://via.placeholder.com/300x200?text=Social+Media+Campaign" alt="Social Media" />
+        <p style="text-align:center;">Καμπάνια Instagram</p>
+      </div>
+      <div>
+        <img src="https://via.placeholder.com/300x200?text=SEO+Results" alt="SEO" />
+        <p style="text-align:center;">Αποτελέσματα SEO</p>
+      </div>
+      <div>
+        <img src="https://via.placeholder.com/300x200?text=Google+Ads" alt="Ads" />
+        <p style="text-align:center;">Google Ads Καμπάνια</p>
+      </div>
     </div>
-    <div>
-      <img src="https://via.placeholder.com/300x200?text=SEO+Results" alt="SEO" />
-      <p style="text-align:center;">Αποτελέσματα SEO</p>
+  </section>
+
+  <section id="about" class="about">
+    <h2>Ποιοι Είμαστε</h2>
+    <p>Η ομάδα του ProInspire αποτελείται από επαγγελματίες του digital marketing με στόχο να βοηθήσουμε τις επιχειρήσεις να ξεχωρίσουν στον ψηφιακό κόσμο.</p>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Επικοινωνήστε μαζί μας</h2>
+    <form>
+      <input type="text" name="name" placeholder="Το όνομά σας" required />
+      <input type="email" name="email" placeholder="Το email σας" required />
+      <textarea name="message" rows="5" placeholder="Το μήνυμά σας" required></textarea>
+      <button type="submit">Αποστολή</button>
+    </form>
+  </section>
+
+  <section id="qa" class="qa-section">
+    <h2>Συχνές Ερωτήσεις (Q&amp;A)</h2>
+
+    <details>
+      <summary>Τι υπηρεσίες digital marketing προσφέρετε;</summary>
+      <p>Προσφέρουμε διαχείριση social media, SEO, δημιουργία περιεχομένου, και καμπάνιες Google & Meta Ads.</p>
+    </details>
+
+    <details>
+      <summary>Πόσο γρήγορα μπορώ να δω αποτελέσματα;</summary>
+      <p>Τα πρώτα αποτελέσματα μπορούν να γίνουν ορατά μέσα σε λίγες εβδομάδες, ανάλογα με την καμπάνια και τον κλάδο.</p>
+    </details>
+
+    <details>
+      <summary>Πώς μπορώ να επικοινωνήσω μαζί σας;</summary>
+      <p>Μπορείτε να χρησιμοποιήσετε τη φόρμα επικοινωνίας που υπάρχει παραπάνω ή να μας καλέσετε στα στοιχεία που θα βρείτε στο footer.</p>
+    </details>
+  </section>
+
+  <section id="testimonials" class="testimonials">
+    <h2>Τι λένε οι πελάτες μας</h2>
+    <div class="testimonial-item">
+      <p>"Η ομάδα του ProInspire ανέβασε την επιχείρησή μας σε άλλο επίπεδο! Επαγγελματίες και πάντα δίπλα μας."</p>
+      <h4>- Μαρία Κ.</h4>
     </div>
-    <div>
-      <img src="https://via.placeholder.com/300x200?text=Google+Ads" alt="Ads" />
-      <p style="text-align:center;">Google Ads Καμπάνια</p>
+    <div class="testimonial-item">
+      <p>"Άψογη συνεργασία και εξαιρετικά αποτελέσματα στα social media. Τους προτείνω ανεπιφύλακτα!"</p>
+      <h4>- Γιώργος Π.</h4>
     </div>
-  </div>
-</section>
+    <div class="testimonial-item">
+      <p>"Οι καμπάνιες Google Ads απέδωσαν πολύ καλά και μέσα σε σύντομο χρονικό διάστημα."</p>
+      <h4>- Ελένη Μ.</h4>
+    </div>
+  </section>
 
-<section id="about" class="about">
-  <h2>Ποιοι Είμαστε</h2>
-  <p>Η ομάδα του ProInspire αποτελείται από επαγγελματίες του digital marketing με στόχο να βοηθήσουμε τις επιχειρήσεις να ξεχωρίσουν στον ψηφιακό κόσμο.</p>
-</section>
-
-<section id="faq" class="faq">
-  <h2>Συχνές Ερωτήσεις (Q&A)</h2>
-  <div class="faq-item">
-    <h3>Τι υπηρεσίες προσφέρετε στο digital marketing;</h3>
-    <p>Προσφέρουμε διαχείριση social media, SEO, δημιουργία περιεχομένου, και καμπάνιες Google & Meta Ads.</p>
-  </div>
-  <div class="faq-item">
-    <h3>Πόσο χρόνο χρειάζεται για να δώσουν αποτελέσματα οι καμπάνιες;</h3>
-    <p>Συνήθως τα πρώτα αποτελέσματα είναι ορατά εντός 4-6 εβδομάδων, ανάλογα με το είδος της καμπάνιας.</p>
-  </div>
-  <div class="faq-item">
-    <h3>Πώς μπορώ να επικοινωνήσω μαζί σας για να ξεκινήσουμε;</h3>
-    <p>Μπορείτε να χρησιμοποιήσετε τη φόρμα επικοινωνίας στην ενότητα «Επικοινωνία» ή να μας καλέσετε στο τηλέφωνο που θα βρείτε στο κάτω μέρος της σελίδας.</p>
-  </div>
-</section>
-
-<section id="contact" class="contact">
-  <h2>Επικοινωνήστε μαζί μας</h2>
-  <form>
-    <input type="text" name="name" placeholder="Το όνομά σας" required />
-    <input type="email" name="email" placeholder="Το email σας" required />
-    <textarea name="message" rows="5" placeholder="Το μήνυμά σας" required></textarea>
-    <button type="submit">Αποστολή</button>
-  </form>
-</section>
-
-<footer>
-  <p>&copy; 2025 ProInspire | Powered by GitHub Pages</p>
-</footer>
-
+  <footer>
+    <p>&copy; 2025 ProInspire | Powered by GitHub Pages</p>
+  </footer>
 </body>
 </html>
