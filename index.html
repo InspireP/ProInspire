@@ -1,194 +1,236 @@
 <!DOCTYPE html>
 <html lang="el">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>ProInspire - Digital Growth Agency</title>
-<style>
-  body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    background-color: #fff;
-    color: #222;
-  }
-  header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 30px;
-    background-color: #0066cc;
-    color: white;
-    position: sticky;
-    top: 0;
-    z-index: 999;
-  }
-  .logo {
-    font-weight: 700;
-    font-size: 1.5em;
-    cursor: pointer;
-  }
-  .contact-btn {
-    background: white;
-    color: #0066cc;
-    border: none;
-    padding: 10px 18px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: 600;
-  }
-  .contact-btn:hover {
-    background-color: #e0e0e0;
-  }
-  section.faq {
-    max-width: 900px;
-    margin: 40px auto;
-    padding: 0 20px 40px 20px;
-  }
-  section.faq h2 {
-    text-align: center;
-    margin-bottom: 25px;
-    font-size: 2em;
-  }
-  .faq-item {
-    border-bottom: 1px solid #ccc;
-    padding: 12px 0;
-    cursor: pointer;
-  }
-  .faq-question {
-    font-weight: bold;
-    margin: 0;
-    user-select: none;
-  }
-  .faq-answer {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
-    margin: 6px 0 0 0;
-    line-height: 1.4em;
-  }
-  .faq-item.active .faq-answer {
-    max-height: 400px;
-  }
-  section.contact {
-    max-width: 700px;
-    margin: 40px auto 60px auto;
-    padding: 0 20px;
-  }
-  section.contact h2 {
-    text-align: center;
-    margin-bottom: 25px;
-    font-size: 2em;
-  }
-  form#contact-form {
-    display: flex;
-    flex-direction: column;
-  }
-  form#contact-form input,
-  form#contact-form textarea {
-    margin-bottom: 15px;
-    padding: 12px;
-    font-size: 16px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    resize: vertical;
-  }
-  form#contact-form button {
-    padding: 12px;
-    font-size: 18px;
-    background-color: #0066cc;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: 600;
-  }
-  form#contact-form button:hover {
-    background-color: #004999;
-  }
-  #contact-success {
-    margin-top: 15px;
-    color: green;
-    font-weight: 600;
-    display: none;
-  }
-  #contact-error {
-    margin-top: 15px;
-    color: red;
-    font-weight: 600;
-    display: none;
-  }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ProInspire - Digital Marketing</title>
+  <style>
+    :root {
+      --bg: #f9f9f9;
+      --text: #333;
+      --box: #fff;
+    }
+
+    body.dark {
+      --bg: #121212;
+      --text: #eee;
+      --box: #1e1e1e;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+    }
+
+    header {
+      background: #3b5998;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      position: relative;
+    }
+
+    header img.logo {
+      width: 120px;
+      margin-bottom: 5px;
+    }
+
+    nav {
+      margin-top: 10px;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+
+    .dark-toggle {
+      position: absolute;
+      top: 20px;
+      right: 60px;
+      cursor: pointer;
+    }
+
+    .cta-button {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: #ff9800;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .hero {
+      background: url('https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=1500&q=80') center/cover;
+      height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-shadow: 1px 1px 3px black;
+      color: white;
+    }
+
+    section {
+      max-width: 900px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
+    .box {
+      background-color: var(--box);
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 30px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+
+    .faq-item {
+      margin-bottom: 15px;
+    }
+
+    .faq-item summary {
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    form input, form textarea {
+      width: 100%;
+      margin-top: 10px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background-color: var(--bg);
+      color: var(--text);
+    }
+
+    form button {
+      background: #0066cc;
+      color: white;
+      padding: 10px 15px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .reviews {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .review {
+      flex: 1 1 250px;
+      background: var(--box);
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #3b5998;
+      color: white;
+    }
+  </style>
 </head>
 <body>
-<header>
-  <div class="logo" onclick="window.scrollTo({top:0,behavior:'smooth'})">ProInspire</div>
-  <button class="contact-btn" onclick="document.getElementById('contact-form').scrollIntoView({behavior:'smooth'})">Επικοινωνία</button>
-</header>
 
-<section class="faq">
-  <h2>Συχνές Ερωτήσεις (Q&A)</h2>
-  <div class="faq-item">
-    <p class="faq-question">Πώς μπορώ να ξεκινήσω μια καμπάνια στο ProInspire;</p>
-    <div class="faq-answer">Απλά επικοινωνήστε μαζί μας μέσω της φόρμας και θα σας καθοδηγήσουμε βήμα-βήμα.</div>
+  <header>
+    <img src="https://via.placeholder.com/120x60.png?text=ProInspire" class="logo" alt="ProInspire" />
+    <h1>ProInspire</h1>
+    <p>Έμπνευση & Απόδοση στο Digital Marketing</p>
+    <nav>
+      <a href="#faq">Συχνές Ερωτήσεις</a>
+      <a href="#contact">Επικοινωνία</a>
+      <a href="#reviews">Κριτικές</a>
+    </nav>
+    <button class="dark-toggle" onclick="toggleDark()">🌓</button>
+    <a href="#contact" class="cta-button">Επικοινώνησε</a>
+  </header>
+
+  <div class="hero">
+    <h2>Αναπτύξτε την επιχείρησή σας ψηφιακά</h2>
   </div>
-  <div class="faq-item">
-    <p class="faq-question">Ποιο είναι το κόστος των υπηρεσιών σας;</p>
-    <div class="faq-answer">Το κόστος διαφέρει ανάλογα με τις ανάγκες της επιχείρησής σας. Κάντε μας μια ερώτηση για να λάβετε προσφορά.</div>
-  </div>
-  <div class="faq-item">
-    <p class="faq-question">Πόσο γρήγορα βλέπω αποτελέσματα από το SEO;</p>
-    <div class="faq-answer">Τα πρώτα αποτελέσματα συνήθως εμφανίζονται μέσα σε 2-3 μήνες, ανάλογα με τον ανταγωνισμό και την αγορά.</div>
-  </div>
-</section>
 
-<section class="contact">
-  <h2>Επικοινωνήστε μαζί μας</h2>
-  <form id="contact-form">
-    <input type="text" id="name" placeholder="Το Όνομά σας" required />
-    <input type="email" id="email" placeholder="Το Email σας" required />
-    <textarea id="message" rows="6" placeholder="Το Μήνυμά σας" required></textarea>
-    <button type="submit">Αποστολή Μηνύματος</button>
-    <div id="contact-success">Το μήνυμά σας στάλθηκε επιτυχώς!</div>
-    <div id="contact-error">Υπήρξε πρόβλημα στην αποστολή, δοκιμάστε ξανά.</div>
-  </form>
-</section>
+  <section id="faq" class="box">
+    <h2>Συχνές Ερωτήσεις (Q&A)</h2>
+    <div class="faq-item">
+      <details>
+        <summary>Πώς μπορώ να ξεκινήσω μια καμπάνια στο ProInspire;</summary>
+        <p>Μπορείτε να μας στείλετε μήνυμα μέσω της φόρμας επικοινωνίας και θα σας καθοδηγήσουμε βήμα-βήμα.</p>
+      </details>
+    </div>
+    <div class="faq-item">
+      <details>
+        <summary>Ποιο είναι το κόστος των υπηρεσιών σας;</summary>
+        <p>Προσφέρουμε πακέτα ανάλογα με τις ανάγκες σας – επικοινωνήστε για δωρεάν προσφορά.</p>
+      </details>
+    </div>
+    <div class="faq-item">
+      <details>
+        <summary>Πόσο γρήγορα βλέπω αποτελέσματα από το SEO;</summary>
+        <p>Τα αποτελέσματα αρχίζουν να φαίνονται σε 2-3 μήνες, ανάλογα με τον ανταγωνισμό.</p>
+      </details>
+    </div>
+  </section>
 
-<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-<script>
-  emailjs.init('qaqFmtt4IhWMdXVVZ');
+  <section id="contact" class="box">
+    <h2>Επικοινωνήστε μαζί μας</h2>
+    <form id="contact-form">
+      <input type="text" name="from_name" placeholder="Το Όνομά σας" required />
+      <input type="email" name="reply_to" placeholder="Το Email σας" required />
+      <textarea name="message" rows="5" placeholder="Το Μήνυμά σας" required></textarea>
+      <button type="submit">Αποστολή</button>
+    </form>
+  </section>
 
-  const faqItems = document.querySelectorAll('.faq-item');
-  faqItems.forEach(item => {
-    item.querySelector('.faq-question').addEventListener('click', () => {
-      item.classList.toggle('active');
+  <section id="reviews" class="box">
+    <h2>Κριτικές Πελατών</h2>
+    <div class="reviews">
+      <div class="review">
+        <p>"Η ομάδα του ProInspire ανέλαβε πλήρως τα social μας και είδαμε άμεση αύξηση στην αλληλεπίδραση!"</p>
+        <strong>- Αντώνης</strong>
+      </div>
+      <div class="review">
+        <p>"Επαγγελματισμός, εξυπηρέτηση και εξαιρετικά αποτελέσματα στην Google διαφήμιση."</p>
+        <strong>- Μαρία</strong>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 ProInspire | Powered by GitHub Pages</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>
+  <script>
+    (function(){
+      emailjs.init("qaqFmtt4IhWMdXVVZ");
+    })();
+
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      emailjs.sendForm('paokfans1926', 'template_b1wbj88', this)
+        .then(function() {
+          alert("Το μήνυμά σας στάλθηκε με επιτυχία!");
+        }, function(error) {
+          alert("Σφάλμα: " + JSON.stringify(error));
+        });
     });
-  });
 
-  const contactForm = document.getElementById('contact-form');
-  const successMsg = document.getElementById('contact-success');
-  const errorMsg = document.getElementById('contact-error');
-
-  contactForm.addEventListener('submit', function(e){
-    e.preventDefault();
-
-    const templateParams = {
-      from_name: document.getElementById('name').value,
-      from_email: document.getElementById('email').value,
-      message: document.getElementById('message').value
-    };
-
-    emailjs.send('paokfans1926', 'template_b1wbj88', templateParams)
-      .then(() => {
-        successMsg.style.display = 'block';
-        errorMsg.style.display = 'none';
-        contactForm.reset();
-      }, (error) => {
-        successMsg.style.display = 'none';
-        errorMsg.style.display = 'block';
-        console.error('EmailJS error:', error);
-      });
-  });
-</script>
+    function toggleDark() {
+      document.body.classList.toggle("dark");
+    }
+  </script>
 
 </body>
 </html>
