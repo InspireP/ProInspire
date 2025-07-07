@@ -134,6 +134,34 @@
       box-shadow: 0 0 5px rgba(0,0,0,0.1);
     }
 
+    .portfolio-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .portfolio-item {
+      flex: 1 1 250px;
+      background: var(--box);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .portfolio-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .portfolio-item div {
+      padding: 15px;
+    }
+
+    .portfolio-item h3 {
+      margin-top: 0;
+    }
+
     footer {
       text-align: center;
       padding: 20px;
@@ -149,7 +177,7 @@
     <h1>ProInspire</h1>
     <p>Έμπνευση & Απόδοση στο Digital Marketing</p>
     <nav>
-      <a href="#services">Υπηρεσίες</a>
+      <a href="#portfolio">Portfolio</a>
       <a href="#faq">Συχνές Ερωτήσεις</a>
       <a href="#contact">Επικοινωνία</a>
       <a href="#reviews">Κριτικές</a>
@@ -162,38 +190,32 @@
     <h2>Αναπτύξτε την επιχείρησή σας ψηφιακά</h2>
   </div>
 
-  <section id="services" class="box">
-    <h2>Οι Υπηρεσίες μας</h2>
-    <div style="display: flex; flex-wrap: wrap; gap: 20px;">
-      
-      <div style="flex: 1 1 250px;">
-        <h3>📱 Social Media Management</h3>
-        <p>Αναλαμβάνουμε τη διαχείριση και ανάπτυξη των social media καναλιών σας με στρατηγική περιεχομένου και engagement.</p>
+  <section id="portfolio" class="box">
+    <h2>Δείγματα Δουλειάς</h2>
+    <div class="portfolio-grid">
+
+      <div class="portfolio-item">
+        <img src="https://via.placeholder.com/400x200?text=Website+1" alt="Ιστοσελίδα Καφετέριας" />
+        <div>
+          <h3>Ιστοσελίδα Καφετέριας</h3>
+          <p>Minimal σχεδιασμός με έντονα call-to-action για online παραγγελίες.</p>
+        </div>
       </div>
 
-      <div style="flex: 1 1 250px;">
-        <h3>🔍 SEO Βελτιστοποίηση</h3>
-        <p>Αναδεικνύουμε την επιχείρησή σας στις πρώτες θέσεις της Google με τεχνική και περιεχομενική SEO στρατηγική.</p>
+      <div class="portfolio-item">
+        <img src="https://via.placeholder.com/400x200?text=Eshop+2" alt="Eshop Ρούχα" />
+        <div>
+          <h3>Eshop με Ρούχα</h3>
+          <p>Shopify + Facebook Ads: 3.000+ παραγγελίες σε 6 μήνες.</p>
+        </div>
       </div>
 
-      <div style="flex: 1 1 250px;">
-        <h3>📢 Διαφημίσεις Google Ads</h3>
-        <p>Δημιουργούμε αποδοτικές καμπάνιες για την επιχείρησή σας σε Google Search, YouTube και Display.</p>
-      </div>
-
-      <div style="flex: 1 1 250px;">
-        <h3>🌐 Κατασκευή Ιστοσελίδων</h3>
-        <p>Κατασκευάζουμε μοντέρνες, responsive ιστοσελίδες που προσελκύουν και μετατρέπουν επισκέπτες σε πελάτες.</p>
-      </div>
-
-      <div style="flex: 1 1 250px;">
-        <h3>📬 Email Marketing</h3>
-        <p>Χτίζουμε έξυπνα newsletter και αυτόματες ροές email για να διατηρείτε επαφή με τους πελάτες σας.</p>
-      </div>
-
-      <div style="flex: 1 1 250px;">
-        <h3>✍️ Copywriting & Περιεχόμενο</h3>
-        <p>Γράφουμε κείμενα που πουλάνε – από landing pages μέχρι posts και βιογραφικά.</p>
+      <div class="portfolio-item">
+        <img src="https://via.placeholder.com/400x200?text=Campaign+3" alt="Καμπάνια Google Ads" />
+        <div>
+          <h3>Καμπάνια Google Ads</h3>
+          <p>Αύξηση επισκεψιμότητας 180% και ROAS 6x για φροντιστήριο.</p>
+        </div>
       </div>
 
     </div>
